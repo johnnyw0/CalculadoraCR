@@ -29,11 +29,28 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <StackLayout Padding="10" Orientation="Horizontal">
-                                        <Label Text="{Binding Nome}" FontAttributes="Bold" HorizontalOptions="StartAndExpand" />
-                                        <Label Text="{Binding Nota, StringFormat='Nota: {0}'}" HorizontalOptions="Center" />
-                                        <Label Text="{Binding CargaHoraria, StringFormat='Carga: {0}h'}" HorizontalOptions="End" />
-                                    </StackLayout>
+                                    <Grid Padding="10" ColumnSpacing="10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Text="{Binding Nome}" FontAttributes="Bold" VerticalOptions="Center" Grid.Column="0" />
+
+                                        <Label Text="{Binding Media, StringFormat='Nota: {0}'}" FontAttributes="Bold" VerticalOptions="Center" Grid.Column="1" />
+
+                                        <Label Text="{Binding CargaHoraria, StringFormat='Carga: {0}h'}" VerticalOptions="Center" Grid.Column="2" />
+
+                                        <Button Text="Excluir" 
+                BackgroundColor="IndianRed"
+                TextColor="White"
+                FontSize="12"
+                Padding="8,4"
+                Clicked="OnDeleteMateriaClicked" 
+                Grid.Column="3" />
+                                    </Grid>
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
